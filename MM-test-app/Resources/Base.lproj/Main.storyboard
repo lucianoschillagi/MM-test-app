@@ -50,7 +50,7 @@
         <!--Photos Table View Controller-->
         <scene sceneID="Tz4-04-x3x">
             <objects>
-                <tableViewController id="K0P-87-mbR" customClass="PhotosTableViewController" customModule="MM_test_app" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="Photos" id="K0P-87-mbR" customClass="PhotosTableViewController" customModule="MM_test_app" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="Ech-Pi-aeT">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
