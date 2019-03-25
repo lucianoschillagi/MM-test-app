@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  PhotoDetailViewController.swift
 //  MM-test-app
 //
 //  Created by Luciano Schillagi on 25/03/2019.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class PhotoDetailViewController: UIViewController {
 
 	override func viewDidLoad() {
 		super.viewDidLoad()
