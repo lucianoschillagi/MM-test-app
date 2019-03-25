@@ -11,14 +11,11 @@ import UIKit
 class PhotosTableViewController: UITableViewController {
 
 	//*****************************************************************
-	// MARK: - Fake Model
+	// MARK: - Properties
 	//*****************************************************************
 	
-	//	var protoModel: [[String:Any]] = [["userId": 1, "id": 1, "title": "quidem molestiae enim"],
-	//																		["userId": 1, "id": 2, "title": "sunt qui excepturi placeat culpa"],
-	//																		["userId": 1, "id": 3, "title": "omnis laborum odio"]]
-	
-	let data = ["data 1", "data 2", "data 3", "data 4"]
+	var photos = [Photo]()
+	var selectedAlbum: Album?
 	
 	//*****************************************************************
 	// MARK: - VC Life Cycle
@@ -26,12 +23,14 @@ class PhotosTableViewController: UITableViewController {
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
-		
+		navigationController?.navigationBar.prefersLargeTitles = true
 		navigationItem.title = "Photos"
-	}
-	
-	override func viewWillAppear(_ animated: Bool) {
-		self.navigationController?.navigationBar.prefersLargeTitles = true
+		
+		// test
+		if let selectedAlbum = selectedAlbum {
+			print("⚠️\(selectedAlbum)")
+		}
+		
 	}
 	
 	//*****************************************************************
@@ -39,12 +38,19 @@ class PhotosTableViewController: UITableViewController {
 	//*****************************************************************
 	
 	override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-		return data.count
+		return photos.count
 	}
 	
 	override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-		let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as UITableViewCell
-		cell.textLabel?.text = data[indexPath.row]
+		let cell = tableView.dequeueReusableCell(withIdentifier: "cellId", for: indexPath) as UITableViewCell
+		let photo = photos[indexPath.row]
+		cell.textLabel?.text = photo.title
+		cell.detailTextLabel?.text = String(photo.url)
+		
+		for photo in photos {
+			print(photo.title)
+		}
+		
 		return cell
 	}
 	

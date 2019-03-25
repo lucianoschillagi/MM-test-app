@@ -7,8 +7,13 @@
 //
 
 import UIKit
+import Alamofire
 
 class AlbumsTableViewController: UITableViewController {
+	
+	//*****************************************************************
+	// MARK: - Properties
+	//*****************************************************************
 	
 	var albums = [Album]()
 	
@@ -18,49 +23,28 @@ class AlbumsTableViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
 				navigationController?.navigationBar.prefersLargeTitles = true
       	navigationItem.title = "Albums"
-			
-				// networking
-			//ApiClient.getAlbums()
-			
-			fetchJSON()
-			
+				getAlbums2()
     }
 	
-	fileprivate func fetchJSON() {
-		
-		let urlString = "https://jsonplaceholder.typicode.com/albums"
 	
-		guard let url = URL(string: urlString) else { return }
+		func getAlbums2() {
 		
-		URLSession.shared.dataTask(with: url) { (data, _, err)  in
-			DispatchQueue.main.async {
-				if let err = err {
-					print ("Failed to get data from url:", err)
-					return
-				}
-				
-				guard let data = data else { return }
-				print(data)
-				
+		// http request
+		AF.request(ApiClient.Constants.GetAlbumsEndpoint).responseJSON { response in
+
+			if let data = response.data {
+
 				do {
 					let decoder = JSONDecoder()
 					self.albums = try decoder.decode([Album].self, from: data)
 					self.tableView.reloadData()
 					
-				} catch let jsonErr {
-					print("Failed to decode:",jsonErr)
-					
-				}
-				
-			}
-		}.resume()
+				} catch let jsonErr { print("Failed to decode:",jsonErr) } }
 		
+			}
 	}
-	
-	
 	
 	
 	//*****************************************************************
@@ -92,7 +76,8 @@ class AlbumsTableViewController: UITableViewController {
 		override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 			let storyboardId = "Photos"
 			let controller = storyboard!.instantiateViewController(withIdentifier: storyboardId) as! PhotosTableViewController
-			//controller.selectedLaptop = laptopArray[(indexPath as NSIndexPath).row]
+			print("La fila seleccionada es la \(indexPath.row)")
+			controller.selectedAlbum = albums[(indexPath.row)]
 			navigationController!.pushViewController(controller, animated: true)
 		}
 

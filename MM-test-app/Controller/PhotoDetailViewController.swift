@@ -10,6 +10,7 @@ import UIKit
 
 class PhotoDetailViewController: UIViewController {
 
+
 	//*****************************************************************
 	// MARK: - VC Life Cycle
 	//*****************************************************************
