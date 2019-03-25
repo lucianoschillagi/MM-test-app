@@ -30,7 +30,7 @@ class AlbumsTableViewController: UITableViewController {
       	navigationItem.title = "Albums"
 			
 				// networking
-			ApiClient.getAlbumns()
+			ApiClient.getAlbums()
 			
     }
 

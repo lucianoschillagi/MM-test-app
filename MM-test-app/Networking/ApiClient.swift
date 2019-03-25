@@ -17,7 +17,7 @@ Un objeto que contiene los métodos para interactuar con la API.
 class ApiClient: NSObject {
 
 	//*****************************************************************
-	// MARK: - Initializers
+	// MARK: - Initializer
 	//*****************************************************************
 
 	override init() { super.init() }
@@ -26,7 +26,6 @@ class ApiClient: NSObject {
 	// MARK: - Properties
 	//*****************************************************************
 
-	// shared session
 	var session = URLSession.shared
 
 	//*****************************************************************
@@ -34,17 +33,17 @@ class ApiClient: NSObject {
 	//*****************************************************************
 
 	/*
-	TASK:
+	TASKS:
 	1- Get Albums
 	2- Get Photos
 	*/
 
 	/// Get Albums
 	// task: obtener una serie de albunes de fotos
-	static func getAlbumns() {
+	static func getAlbums() {
 		
 		// http request
-		AF.request("https://jsonplaceholder.typicode.com/albums").responseJSON { response in
+		AF.request(ApiClient.Constants.GetAlbumsEndpoint).responseJSON { response in
 			print("Request: \(String(describing: response.request))")   // original url request
 			print("Response: \(String(describing: response.response))") // http url response
 			print("Result: \(response.result)")                         // response serialization result
