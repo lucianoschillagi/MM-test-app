@@ -11,6 +11,16 @@ import UIKit
 class AlbumsTableViewController: UITableViewController {
 	
 	//*****************************************************************
+	// MARK: - Fake Model
+	//*****************************************************************
+	
+//	var protoModel: [[String:Any]] = [["userId": 1, "id": 1, "title": "quidem molestiae enim"],
+//																		["userId": 1, "id": 2, "title": "sunt qui excepturi placeat culpa"],
+//																		["userId": 1, "id": 3, "title": "omnis laborum odio"]]
+	
+	let data = ["data 1", "data 2", "data 3", "data 4"]
+	
+	//*****************************************************************
 	// MARK: - VC Life Cycle
 	//*****************************************************************
 
@@ -28,25 +38,15 @@ class AlbumsTableViewController: UITableViewController {
 	// MARK: - Table View Data Source Methods
 	//*****************************************************************
 
-    override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 0
-    }
-
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return 0
-    }
-
-    /*
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
-
-        // Configure the cell...
-
-        return cell
-    }
-    */
+		override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+			return data.count
+		}
+	
+		override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+			let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as UITableViewCell
+			cell.textLabel?.text = data[indexPath.row]
+			return cell
+		}
 
     /*
     // Override to support conditional editing of the table view.
