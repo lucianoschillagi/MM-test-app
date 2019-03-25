@@ -28,6 +28,10 @@ class AlbumsTableViewController: UITableViewController {
         super.viewDidLoad()
 
       	navigationItem.title = "Albums"
+			
+				// networking
+			ApiClient.getAlbumns()
+			
     }
 
 		override func viewWillAppear(_ animated: Bool) {
