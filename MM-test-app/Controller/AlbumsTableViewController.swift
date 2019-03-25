@@ -10,15 +10,7 @@ import UIKit
 
 class AlbumsTableViewController: UITableViewController {
 	
-	//*****************************************************************
-	// MARK: - Fake Model
-	//*****************************************************************
-	
-//	var protoModel: [[String:Any]] = [["userId": 1, "id": 1, "title": "quidem molestiae enim"],
-//																		["userId": 1, "id": 2, "title": "sunt qui excepturi placeat culpa"],
-//																		["userId": 1, "id": 3, "title": "omnis laborum odio"]]
-	
-	let data = ["data 1", "data 2", "data 3", "data 4"]
+	var albums = [Album]()
 	
 	//*****************************************************************
 	// MARK: - VC Life Cycle
@@ -27,28 +19,68 @@ class AlbumsTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+				navigationController?.navigationBar.prefersLargeTitles = true
       	navigationItem.title = "Albums"
 			
 				// networking
-			ApiClient.getAlbums()
+			//ApiClient.getAlbums()
+			
+			fetchJSON()
 			
     }
-
-		override func viewWillAppear(_ animated: Bool) {
-			self.navigationController?.navigationBar.prefersLargeTitles = true
-		}
+	
+	fileprivate func fetchJSON() {
+		
+		let urlString = "https://jsonplaceholder.typicode.com/albums"
+	
+		guard let url = URL(string: urlString) else { return }
+		
+		URLSession.shared.dataTask(with: url) { (data, _, err)  in
+			DispatchQueue.main.async {
+				if let err = err {
+					print ("Failed to get data from url:", err)
+					return
+				}
+				
+				guard let data = data else { return }
+				print(data)
+				
+				do {
+					let decoder = JSONDecoder()
+					self.albums = try decoder.decode([Album].self, from: data)
+					self.tableView.reloadData()
+					
+				} catch let jsonErr {
+					print("Failed to decode:",jsonErr)
+					
+				}
+				
+			}
+		}.resume()
+		
+	}
+	
+	
+	
 	
 	//*****************************************************************
 	// MARK: - Table View Data Source Methods
 	//*****************************************************************
 
 		override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-			return data.count
+			return albums.count
 		}
 	
 		override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-			let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as UITableViewCell
-			cell.textLabel?.text = data[indexPath.row]
+			let cell = tableView.dequeueReusableCell(withIdentifier: "cellId", for: indexPath) as UITableViewCell
+			let album = albums[indexPath.row]
+			cell.textLabel?.text = album.title
+			cell.detailTextLabel?.text = String(album.id)
+			
+			for album in albums {
+				print(album.title)
+			}
+		
 			return cell
 		}
 	

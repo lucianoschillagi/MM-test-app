@@ -17,6 +17,7 @@
 		A67A32D22248840100BC5170 /* PhotosTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A67A32D12248840100BC5170 /* PhotosTableViewController.swift */; };
 		A67A32D52248990D00BC5170 /* ApiClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = A67A32D42248990D00BC5170 /* ApiClient.swift */; };
 		A67A32D722489BC700BC5170 /* ApiConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = A67A32D622489BC700BC5170 /* ApiConstants.swift */; };
+		A6ED906B22499121008CA781 /* Album.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6ED906A22499121008CA781 /* Album.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +33,7 @@
 		A67A32D12248840100BC5170 /* PhotosTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosTableViewController.swift; sourceTree = "<group>"; };
 		A67A32D42248990D00BC5170 /* ApiClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ApiClient.swift; path = "MM-test-app/Networking/ApiClient.swift"; sourceTree = SOURCE_ROOT; };
 		A67A32D622489BC700BC5170 /* ApiConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiConstants.swift; sourceTree = "<group>"; };
+		A6ED906A22499121008CA781 /* Album.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Album.swift; sourceTree = "<group>"; };
 		AFA81D0DB3CB1A0B2FEA2CCF /* Pods-MM-test-app.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MM-test-app.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MM-test-app/Pods-MM-test-app.debug.xcconfig"; sourceTree = "<group>"; };
 		C0399C0EA63972BCB1486B9F /* Pods-MM-test-app.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MM-test-app.release.xcconfig"; path = "Pods/Target Support Files/Pods-MM-test-app/Pods-MM-test-app.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -109,6 +111,7 @@
 		A67A32CC2248807800BC5170 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				A6ED906A22499121008CA781 /* Album.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -257,6 +260,7 @@
 				A67A32D722489BC700BC5170 /* ApiConstants.swift in Sources */,
 				A67A32D22248840100BC5170 /* PhotosTableViewController.swift in Sources */,
 				A67A32BA22487DDA00BC5170 /* AppDelegate.swift in Sources */,
+				A6ED906B22499121008CA781 /* Album.swift in Sources */,
 				A67A32D52248990D00BC5170 /* ApiClient.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
