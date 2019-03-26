@@ -15,13 +15,13 @@ class PhotoDetailViewController: UIViewController {
 	// MARK: - Properties
 	//*****************************************************************
 	
-	var selectedImage: Photo?
+	var selectedPhoto: Photo?
 	
 	//*****************************************************************
 	// MARK: - IBOutlets
 	//*****************************************************************
 
-	@IBOutlet weak var photoDetail: UIView!
+	@IBOutlet weak var photoDetail: UIImageView!
 	
 	//*****************************************************************
 	// MARK: - VC Life Cycle
@@ -29,12 +29,17 @@ class PhotoDetailViewController: UIViewController {
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
-		// Do any additional setup after loading the view, typically from a nib.
-		
-		navigationItem.title = selectedImage?.title
-		// test
-		print("la foto seleccionada es \(selectedImage?.url)")
-	
+		navigationItem.title = selectedPhoto?.title
+
+		// networking 🚀
+		// task: obtener la imagen de minitura de la foto
+		AF.request((selectedPhoto?.url)!).responseJSON { response in
+			if let data = response.data {
+				self.photoDetail.contentMode = UIView.ContentMode.scaleAspectFit
+				self.photoDetail.image = UIImage(data: data)
+			}
+		}
+
 	}
 
 }

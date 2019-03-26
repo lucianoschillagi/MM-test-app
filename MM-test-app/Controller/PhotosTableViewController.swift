@@ -19,13 +19,6 @@ class PhotosTableViewController: UITableViewController {
 	var photos = [Photo]() // contiene las fotos del álbum seleccionado
 	
 	//*****************************************************************
-	// MARK: - IBOutlets
-	//*****************************************************************
-	
-//	@IBOutlet weak var photoThumb: UIImageView!
-//	@IBOutlet weak var photoName: UILabel!
-	
-	//*****************************************************************
 	// MARK: - VC Life Cycle
 	//*****************************************************************
 	
@@ -48,10 +41,9 @@ class PhotosTableViewController: UITableViewController {
 		}
 		
 		navigationItem.title = "Album: \(selectedAlbum!.title)"
-		
 		let getAlbumPhotosEndpoint = "https://jsonplaceholder.typicode.com/photos?albumId=\(selectedAlbumId)"
 		
-		// http request
+		// networking 🚀
 		AF.request(getAlbumPhotosEndpoint).responseJSON { response in
 			if let data = response.data {
 				
@@ -59,26 +51,8 @@ class PhotosTableViewController: UITableViewController {
 					let decoder = JSONDecoder()
 					self.photos = try decoder.decode([Photo].self, from: data)
 					self.tableView.reloadData() } catch let jsonErr { print("Failed to decode:",jsonErr) } }
+				}
 		}
-		
-	}
-	
-	// task: obtener la imagen de minitura de la foto
-	private func getThumbImagePhoto() {
-		
-		for photo in self.photos {
-			print("\(photo.thumbnailUrl)")
-		}
-	
-		// http request
-		AF.request("").responseJSON { response in
-			if let data = response.data {
-
-				print("los datos de la imagen de los foto son \(data)")
-
-			}
-		}
-	}
 	
 	//*****************************************************************
 	// MARK: - Table View Data Source Methods
@@ -94,39 +68,16 @@ class PhotosTableViewController: UITableViewController {
 		let preImage = UIImage(named: "preImage")
 		cell.imageView?.image = preImage
 		cell.textLabel?.text = photo.title
-		//cell.imageView?.image = UIImage(imageLiteralResourceName: <#T##String#>)
 		
-		// TODO:
-		// 1. realizar una solicitud para obtener las url de las miniaturas de las fotos
-		// 2. si el resultado es OK, convertir los datos de las imagenes recibidos en imágenes
-		// 3. mostrarlos en la imagen de la vista de celda
-		
-//		struct Photo: Decodable {
-//			let albumId: Int
-//			let title: String
-//			let url: String
-//			let thumbnailUrl: String
-//		}
-//
-		
-		// http request
+		// networking 🚀
+		// task: obtener la imagen de minitura de la foto
 		AF.request(photo.thumbnailUrl).responseJSON { response in
 			if let data = response.data {
-				
-				print("👹 los datos de las miniaturas de la fotos: \(data)")
 				cell.imageView?.contentMode = UIView.ContentMode.scaleAspectFit
 				cell.imageView?.image = UIImage(data: data)
-				
-
 			}
 		}
 		
-		
-		
-		
-		// TODO: AGREGAR LA MINIATURA DE CADA FOTO DEL LISTADO
-		//getThumbImagePhoto()
-
 		return cell
 	}
 	
@@ -138,7 +89,7 @@ class PhotosTableViewController: UITableViewController {
 	override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 		let storyboardId = "Photo Detail"
 		let controller = storyboard!.instantiateViewController(withIdentifier: storyboardId) as! PhotoDetailViewController
-		controller.selectedImage = photos[(indexPath.row)]
+		controller.selectedPhoto = photos[(indexPath.row)]
 		navigationController!.pushViewController(controller, animated: true)
 	}
 

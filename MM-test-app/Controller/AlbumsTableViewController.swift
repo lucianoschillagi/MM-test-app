@@ -23,10 +23,10 @@ class AlbumsTableViewController: UITableViewController {
 	//*****************************************************************
 
 	override func viewDidLoad() {
-			super.viewDidLoad()
-			navigationController?.navigationBar.prefersLargeTitles = true
-			navigationItem.title = "Albums"
-			getAlbums()
+		super.viewDidLoad()
+		navigationController?.navigationBar.prefersLargeTitles = true
+		navigationItem.title = "Albums"
+		getAlbums()
 	}
 		
 	//*****************************************************************
@@ -64,11 +64,6 @@ class AlbumsTableViewController: UITableViewController {
 		let album = albums[indexPath.row]
 		cell.textLabel?.text = album.title
 		cell.detailTextLabel?.text = String(album.id)
-		
-		for album in albums {
-			print(album.title)
-		}
-	
 		return cell
 	}
 	

@@ -92,27 +92,26 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xwu-x9-Bhd">
-                                <rect key="frame" x="37" y="155" width="300" height="300"/>
-                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            </view>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="qVx-G1-bgC">
+                                <rect key="frame" x="38" y="167" width="300" height="300"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="fsv-sI-Uys" firstAttribute="bottom" secondItem="xwu-x9-Bhd" secondAttribute="bottom" constant="212" id="W0v-AP-qmW"/>
-                            <constraint firstItem="xwu-x9-Bhd" firstAttribute="top" secondItem="fsv-sI-Uys" secondAttribute="top" constant="135" id="WfL-33-k2a"/>
-                            <constraint firstItem="xwu-x9-Bhd" firstAttribute="leading" secondItem="fsv-sI-Uys" secondAttribute="leading" constant="37" id="dbj-EG-U74"/>
-                            <constraint firstItem="fsv-sI-Uys" firstAttribute="trailing" secondItem="xwu-x9-Bhd" secondAttribute="trailing" constant="38" id="oP0-yq-ePX"/>
+                            <constraint firstItem="fsv-sI-Uys" firstAttribute="trailing" secondItem="qVx-G1-bgC" secondAttribute="trailing" constant="37" id="9DU-5l-brI"/>
+                            <constraint firstItem="qVx-G1-bgC" firstAttribute="top" secondItem="fsv-sI-Uys" secondAttribute="top" constant="147" id="Fus-3Q-t84"/>
+                            <constraint firstItem="qVx-G1-bgC" firstAttribute="leading" secondItem="fsv-sI-Uys" secondAttribute="leading" constant="38" id="YqX-p0-eLl"/>
+                            <constraint firstItem="fsv-sI-Uys" firstAttribute="bottom" secondItem="qVx-G1-bgC" secondAttribute="bottom" constant="200" id="ts6-6J-OE6"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="fsv-sI-Uys"/>
                     </view>
                     <connections>
-                        <outlet property="photoDetail" destination="xwu-x9-Bhd" id="PbK-ac-AuH"/>
+                        <outlet property="photoDetail" destination="qVx-G1-bgC" id="aCl-eW-V0U"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1BU-b5-zvT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3906" y="-708"/>
+            <point key="canvasLocation" x="3904.8000000000002" y="-708.39580209895053"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="8p2-j3-1vT">

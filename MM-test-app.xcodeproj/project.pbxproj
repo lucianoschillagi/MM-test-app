@@ -90,9 +90,8 @@
 			children = (
 				A67A32B922487DDA00BC5170 /* AppDelegate.swift */,
 				A67A32CB2248806300BC5170 /* Controller */,
-				A67A32CE2248809000BC5170 /* Networking */,
-				A67A32CD2248808900BC5170 /* View */,
 				A67A32CC2248807800BC5170 /* Model */,
+				A67A32CE2248809000BC5170 /* Networking */,
 				A67A32D32248868700BC5170 /* Resources */,
 			);
 			path = "MM-test-app";
@@ -114,13 +113,6 @@
 				A6ED906A22499121008CA781 /* ModelObjetcs.swift */,
 			);
 			path = Model;
-			sourceTree = "<group>";
-		};
-		A67A32CD2248808900BC5170 /* View */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = View;
 			sourceTree = "<group>";
 		};
 		A67A32CE2248809000BC5170 /* Networking */ = {
