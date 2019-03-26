@@ -24,22 +24,23 @@ class PhotosTableViewController: UITableViewController {
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
-		navigationController?.navigationBar.prefersLargeTitles = true
-		navigationItem.title = "Photos"
-		
 		getAlbumPhotos()
 	}
 	
-
-	// TODO: luego mover
-	func getAlbumPhotos() {
+	//*****************************************************************
+	// MARK: - Networking Methods
+	//*****************************************************************
+	
+	// task: obtener el set de fotos del álbum seleccionado
+	private func getAlbumPhotos() {
 		
 		var selectedAlbumId = Int()
 		
-		// optional binding
 		if let selectedAlbum = selectedAlbum {
 			selectedAlbumId = selectedAlbum.id
 		}
+		
+		navigationItem.title = String("Album Photos \(selectedAlbumId)")
 		
 		let getAlbumPhotosEndpoint = "https://jsonplaceholder.typicode.com/photos?albumId=\(selectedAlbumId)"
 		
@@ -68,10 +69,8 @@ class PhotosTableViewController: UITableViewController {
 		cell.textLabel?.text = photo.title
 		cell.detailTextLabel?.text = String(photo.url)
 		
-		for photo in photos {
-			print(photo.title)
-		}
-		
+		// TODO: AGREGAR LA MINIATURA DE CADA FOTO DEL LISTADO
+
 		return cell
 	}
 	

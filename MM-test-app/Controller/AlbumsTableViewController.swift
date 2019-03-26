@@ -32,7 +32,7 @@ class AlbumsTableViewController: UITableViewController {
 	// MARK: - Netwoking Methods
 	//*****************************************************************
 	
-		// TODO: luego mover
+		// task: obtener albunes de fotos a mostrar en la table view
 		private func getAlbums() {
 		
 		// http request
