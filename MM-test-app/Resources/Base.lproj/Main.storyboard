@@ -56,18 +56,20 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cellId" rowHeight="99" id="CVB-ZF-2eb">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cellId" textLabel="9qB-N8-asl" rowHeight="99" style="IBUITableViewCellStyleDefault" id="CVB-ZF-2eb">
                                 <rect key="frame" x="0.0" y="28" width="375" height="99"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="CVB-ZF-2eb" id="rcQ-PN-QXC">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="98.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="GoP-Au-wf2">
-                                            <rect key="frame" x="6" y="5" width="90" height="90"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <color key="backgroundColor" red="1" green="0.64197011589999997" blue="0.60456819309999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        </imageView>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="9qB-N8-asl">
+                                            <rect key="frame" x="16" y="0.0" width="343" height="98.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
                                     </subviews>
                                 </tableViewCellContentView>
                             </tableViewCell>
@@ -91,19 +93,22 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xwu-x9-Bhd">
-                                <rect key="frame" x="16" y="93" width="343" height="538"/>
+                                <rect key="frame" x="37" y="155" width="300" height="300"/>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="fsv-sI-Uys" firstAttribute="trailing" secondItem="xwu-x9-Bhd" secondAttribute="trailing" constant="16" id="5DB-8a-AOE"/>
-                            <constraint firstItem="xwu-x9-Bhd" firstAttribute="leading" secondItem="fsv-sI-Uys" secondAttribute="leading" constant="16" id="mtM-MA-GWk"/>
-                            <constraint firstItem="xwu-x9-Bhd" firstAttribute="top" secondItem="fsv-sI-Uys" secondAttribute="top" constant="73" id="paP-NB-UhR"/>
-                            <constraint firstItem="fsv-sI-Uys" firstAttribute="bottom" secondItem="xwu-x9-Bhd" secondAttribute="bottom" constant="36" id="yuY-cr-rtL"/>
+                            <constraint firstItem="fsv-sI-Uys" firstAttribute="bottom" secondItem="xwu-x9-Bhd" secondAttribute="bottom" constant="212" id="W0v-AP-qmW"/>
+                            <constraint firstItem="xwu-x9-Bhd" firstAttribute="top" secondItem="fsv-sI-Uys" secondAttribute="top" constant="135" id="WfL-33-k2a"/>
+                            <constraint firstItem="xwu-x9-Bhd" firstAttribute="leading" secondItem="fsv-sI-Uys" secondAttribute="leading" constant="37" id="dbj-EG-U74"/>
+                            <constraint firstItem="fsv-sI-Uys" firstAttribute="trailing" secondItem="xwu-x9-Bhd" secondAttribute="trailing" constant="38" id="oP0-yq-ePX"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="fsv-sI-Uys"/>
                     </view>
+                    <connections>
+                        <outlet property="photoDetail" destination="xwu-x9-Bhd" id="PbK-ac-AuH"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1BU-b5-zvT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
