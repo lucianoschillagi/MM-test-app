@@ -41,42 +41,38 @@ class ApiClient: NSObject {
 	/// Get Albums
 	// task: obtener una serie de albunes de fotos
 //	static func getAlbums() {
-//		
+//
 //		// http request
 //		AF.request(ApiClient.Constants.GetAlbumsEndpoint).responseJSON { response in
 //			print("Request: \(String(describing: response.request))")   // original url request
 //			print("Response: \(String(describing: response.response))") // http url response
 //			print("Result: \(response.result)")                         // response serialization result
-//			
-//			
+//
+//
 //			if let json = response.result.value {
 //				print("JSON: \(json)") // serialized json response
 //			}
-//			
+//
 //			if let data = response.data, let utf8Text = String(data: data, encoding: .utf8) {
 //				print("Data: \(utf8Text)") // original server data as UTF8 string
 //				print("Data2: \(data)") // original server data as UTF8 string
-//				
+//
 //				do {
 //					let decoder = JSONDecoder()
 //					self.albums = try decoder.decode([Album].self, from: data)
 //					print("🎬\(data)")
 //					self.tableView.reloadData()
-//					
+//
 //				} catch let jsonErr {
 //					print("Failed to decode:",jsonErr)
-//					
+//
 //				}
-//				
-//				
-//				
-//				
+//
 //			}
 //		}
-//	
 //	}
 	
-
+	
 	/// Get Photos
 	// task: obtener las fotos de un determinado álbum
 	static func getPhotos() {

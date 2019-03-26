@@ -25,11 +25,15 @@ class AlbumsTableViewController: UITableViewController {
         super.viewDidLoad()
 				navigationController?.navigationBar.prefersLargeTitles = true
       	navigationItem.title = "Albums"
-				getAlbums2()
+				getAlbums()
     }
 	
+	//*****************************************************************
+	// MARK: - Netwoking Methods
+	//*****************************************************************
 	
-		func getAlbums2() {
+		// TODO: luego mover
+		private func getAlbums() {
 		
 		// http request
 		AF.request(ApiClient.Constants.GetAlbumsEndpoint).responseJSON { response in

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Alamofire
 
 class PhotosTableViewController: UITableViewController {
 
@@ -26,11 +27,31 @@ class PhotosTableViewController: UITableViewController {
 		navigationController?.navigationBar.prefersLargeTitles = true
 		navigationItem.title = "Photos"
 		
-		// test
+		getAlbumPhotos()
+	}
+	
+
+	// TODO: luego mover
+	func getAlbumPhotos() {
+		
+		var selectedAlbumId = Int()
+		
+		// optional binding
 		if let selectedAlbum = selectedAlbum {
-			print("⚠️\(selectedAlbum)")
+			selectedAlbumId = selectedAlbum.id
 		}
 		
+		let getAlbumPhotosEndpoint = "https://jsonplaceholder.typicode.com/photos?albumId=\(selectedAlbumId)"
+		
+		// http request
+		AF.request(getAlbumPhotosEndpoint).responseJSON { response in
+			if let data = response.data {
+				
+				do {
+					let decoder = JSONDecoder()
+					self.photos = try decoder.decode([Photo].self, from: data)
+					self.tableView.reloadData() } catch let jsonErr { print("Failed to decode:",jsonErr) } }
+		}
 	}
 	
 	//*****************************************************************
