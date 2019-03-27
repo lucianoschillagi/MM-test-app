@@ -11,16 +11,7 @@ import Alamofire
 
 class AlbumsTableViewController: UITableViewController {
 	
-	//*****************************************************************
-	// MARK: - Properties
-	//*****************************************************************
-	
-	// el array de albunes de fotos obtenido (model)
 	var albums = [Album]()
-
-	//*****************************************************************
-	// MARK: - VC Life Cycle
-	//*****************************************************************
 
 	override func viewDidLoad() {
 		super.viewDidLoad()
@@ -28,12 +19,7 @@ class AlbumsTableViewController: UITableViewController {
 		navigationItem.title = "Albums"
 		getAlbums()
 	}
-		
-	//*****************************************************************
-	// MARK: - Netwoking Methods
-	//*****************************************************************
 	
-	// task: obtener albunes de fotos a mostrar en la table view
 	private func getAlbums() {
 
 		let getAlbumsEndpoint = "https://jsonplaceholder.typicode.com/albums"
@@ -48,12 +34,7 @@ class AlbumsTableViewController: UITableViewController {
 
 				} catch let jsonErr { print("Failed to decode:",jsonErr) } }
 		}
-			
 	}
-	
-	//*****************************************************************
-	// MARK: - Table View Data Source Methods
-	//*****************************************************************
 
 	override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
 		return albums.count
@@ -67,11 +48,6 @@ class AlbumsTableViewController: UITableViewController {
 		return cell
 	}
 	
-	//*****************************************************************
-	// MARK: - Table View Delegate Methods
-	//*****************************************************************
-	
-	// task: navegar hacia el album de fotos seleccionado
 	override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 		let storyboardId = "Photos"
 		let controller = storyboard!.instantiateViewController(withIdentifier: storyboardId) as! PhotosTableViewController

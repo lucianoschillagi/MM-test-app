@@ -10,32 +10,17 @@ import UIKit
 import Alamofire
 
 class PhotosTableViewController: UITableViewController {
-
-	//*****************************************************************
-	// MARK: - Properties
-	//*****************************************************************
 	
-	var selectedAlbum: Album? // el album seleccionado en la pantalla anterior
-	var photos = [Photo]() // contiene las fotos del álbum seleccionado
-	
-	//*****************************************************************
-	// MARK: - VC Life Cycle
-	//*****************************************************************
+	var selectedAlbum: Album?
+	var photos = [Photo]()
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		getAlbumPhotos()
 	}
 	
-	//*****************************************************************
-	// MARK: - Networking Methods
-	//*****************************************************************
-	
-	// task: obtener el set de fotos del álbum seleccionado
 	private func getAlbumPhotos() {
-		
 		var selectedAlbumId = Int()
-		
 		if let selectedAlbum = selectedAlbum {
 			selectedAlbumId = selectedAlbum.id
 		}
@@ -43,7 +28,6 @@ class PhotosTableViewController: UITableViewController {
 		navigationItem.title = "Album: \(selectedAlbum!.title)"
 		let getAlbumPhotosEndpoint = "https://jsonplaceholder.typicode.com/photos?albumId=\(selectedAlbumId)"
 		
-		// networking 🚀
 		AF.request(getAlbumPhotosEndpoint).responseJSON { response in
 			if let data = response.data {
 				
@@ -53,10 +37,6 @@ class PhotosTableViewController: UITableViewController {
 					self.tableView.reloadData() } catch let jsonErr { print("Failed to decode:",jsonErr) } }
 				}
 		}
-	
-	//*****************************************************************
-	// MARK: - Table View Data Source Methods
-	//*****************************************************************
 	
 	override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
 		return photos.count
@@ -69,23 +49,15 @@ class PhotosTableViewController: UITableViewController {
 		cell.imageView?.image = preImage
 		cell.textLabel?.text = photo.title
 		
-		// networking 🚀
-		// task: obtener la imagen de minitura de la foto
 		AF.request(photo.thumbnailUrl).responseJSON { response in
 			if let data = response.data {
 				cell.imageView?.contentMode = UIView.ContentMode.scaleAspectFit
 				cell.imageView?.image = UIImage(data: data)
 			}
 		}
-		
 		return cell
 	}
 	
-	//*****************************************************************
-	// MARK: - Table View Delegate Methods
-	//*****************************************************************
-	
-	// task: navegar hacia el album de fotos seleccionado
 	override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 		let storyboardId = "Photo Detail"
 		let controller = storyboard!.instantiateViewController(withIdentifier: storyboardId) as! PhotoDetailViewController

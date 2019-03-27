@@ -6,13 +6,7 @@
 //  Copyright © 2019 luko. All rights reserved.
 //
 
-/* Model */
-
 import UIKit
-
-/* Abstract:
-Los objetos del modelo: álbum y foto.
-*/
 
 struct Album: Decodable {
 	let id: Int
